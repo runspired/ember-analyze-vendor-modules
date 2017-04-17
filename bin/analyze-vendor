@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+'use strict';
+
+// Provide a title to the process in `ps`
+process.title = 'analyze-vendor';
+
+const args = require('../src/setup-args')(process.argv);
+const findProject = require('../src/find-project')(args);
+const findBundle = require('../src/find-bundle')(args);
+const analyzeBundle = require('../src/analyze-bundle')(args);
+
+return findProject(args)
+  .then(findBundle)
+  .then(analyzeBundle)
+  .catch((e) => {
+    throw e;
+    // throw new Error('Whoops!');
+  });
