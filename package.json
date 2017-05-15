@@ -1,5 +1,5 @@
 {
-  "name": "analyze-modules",
+  "name": "ember-analyze-vendor-modules",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
